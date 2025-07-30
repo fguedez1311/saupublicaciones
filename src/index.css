@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme{
+     --color-principal-pagina: #2563eb; 
+     --color-borde-pagina: #1e40af;     
+     --color-button: #3b82f6; 
+}
