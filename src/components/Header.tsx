@@ -1,9 +1,9 @@
 export function Header() {
   return (
-     <nav className="py-8 bg-principal-pagina">
-        <div className="flex w-9/10 mx-auto justify-between">
+     <nav className="font-jakarta py-8 bg-principal-pagina">
+        <div className="flex w-9/10 mx-auto justify-between items-center">
             <a href="#" className="relative z-10">
-                <img src="/img/logo.png" alt="Logo página" className="logo" />
+                <img src="/img/logo1.png" alt="Logo página" className="w-40 md:w-52 h-auto" />
             </a>
             <label 
                 className="
@@ -14,8 +14,8 @@ export function Header() {
                       transition-all
                       peer/label
 
-                      bg-(image:--icono-menu-cerrado)
-                      has-checked:bg-(image:--icono-menu-abierto)
+                      bg-(image:--icono-menu-abierto)
+                      has-checked:bg-(image:--icono-menu-cerrado)
                       md:hidden 
                  "
             >
@@ -33,17 +33,18 @@ export function Header() {
                 md:static md:translate-0 md:flex-row
             ">
                 <li>
-                    <a href="#">Acerca de </a>
+                    <a href="#">Home </a>
                 </li>
-                <li>
-                    <a href="https://alexcgdesign.com/cursocss" className="
-                        bg-button text-principal-pagina py-4
-                        px-6 rounded-full
-                    "
-                    >
-                    Ingresa al Curso
-                </a>
+                 <li>
+                    <a href="#">Estado </a>
                 </li>
+                 <li>
+                    <a href="#">Municipio </a>
+                </li>
+                 <li>
+                    <a href="#">Parroquia </a>
+                </li>
+                    
             </ul>
         </div>
    </nav>
