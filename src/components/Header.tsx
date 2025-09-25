@@ -63,15 +63,7 @@ export function Header() {
               Estado
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="municipio"
-              className={({ isActive }) => (isActive ? "active" : "")}
-              onClick={handleMenuClose}
-            >
-              Municipio
-            </NavLink>
-          </li>
+         
           <li>
             <NavLink
               to="parroquia"
