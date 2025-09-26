@@ -43,7 +43,7 @@ export function TablaEstado({ data, itemsPerPage = 5 }: DataTableProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 py-4">
       {/* Vista de escritorio - Tabla */}
       <div className="hidden md:block">
         <Card>
