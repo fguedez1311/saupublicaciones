@@ -1,11 +1,16 @@
-import { Link, NavLink } from "react-router";
 import { useState } from "react";
+import { Link, NavLink,useLocation } from "react-router";
+import './header.css'
 
 export function Header() {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   const handleMenuToggle = () => setMenuAbierto(!menuAbierto);
   const handleMenuClose = () => setMenuAbierto(false);
+   const {pathname}=useLocation()
+  const isActive=(path:string)=>{
+        return pathname===path
+  }
 
   return (
     <nav className="font-jakarta py-8 bg-principal-pagina">
@@ -48,7 +53,7 @@ export function Header() {
           <li>
             <NavLink
               to="/"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={isActive('/') ? "active" : ""}
               onClick={handleMenuClose}
             >
               Home
@@ -57,7 +62,7 @@ export function Header() {
           <li>
             <NavLink
               to="delta"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={isActive('/delta') ? "active" : ""}
               onClick={handleMenuClose}
             >
               Estado
@@ -67,7 +72,7 @@ export function Header() {
           <li>
             <NavLink
               to="parroquia"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={isActive('/parroquia') ? "active" : ""}
               onClick={handleMenuClose}
             >
               Parroquia
