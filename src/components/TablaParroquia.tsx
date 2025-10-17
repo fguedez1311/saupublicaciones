@@ -135,7 +135,7 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
             </div>
           </CardContent>
         </Card>
-      </div>
+      </div>git ch
 
       {/* Vista móvil - Cards */}
       <div className="md:hidden space-y-4">
@@ -144,7 +144,7 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
             <div className="space-y-3">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <div className="text-xs font-medium text-muted-foreground mb-1">{item.parroquia}</div>
+                  <div className="text-xs font-medium text-muted-foreground mb-1">{item.cod_dpt}</div>
                   <h3 className="font-medium text-foreground text-balance">{item.title}</h3>
                   <p className="text-sm text-muted-foreground mt-1 text-pretty">{item.description}</p>
                 </div>
