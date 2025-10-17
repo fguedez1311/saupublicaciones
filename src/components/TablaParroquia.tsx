@@ -135,7 +135,7 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
             </div>
           </CardContent>
         </Card>
-      </div>git ch
+      </div>
 
       {/* Vista móvil - Cards */}
       <div className="md:hidden space-y-4">
