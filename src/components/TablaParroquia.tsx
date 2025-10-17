@@ -4,10 +4,9 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ChevronLeft, ChevronRight, Download, FileText, Eye } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { ChevronLeft, ChevronRight, Download, FileText, Eye, Search } from "lucide-react"
 import type { IParroquia } from "@/types/type_parroquia"
-
-
 
 interface DataTableProps {
   data: IParroquia[]
@@ -16,11 +15,26 @@ interface DataTableProps {
 
 export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchTerm, setSearchTerm] = useState("")
 
-  const totalPages = Math.ceil(data.length / itemsPerPage)
+  const filteredData = data.filter((item) => {
+    const search = searchTerm.toLowerCase()
+    return (
+      item.cod_dpt.toLowerCase().includes(search) ||
+      item.title.toLowerCase().includes(search) ||
+      item.description.toLowerCase().includes(search)
+    )
+  })
+
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
-  const currentData = data.slice(startIndex, endIndex)
+  const currentData = filteredData.slice(startIndex, endIndex)
+
+  const handleSearch = (value: string) => {
+    setSearchTerm(value)
+    setCurrentPage(1)
+  }
 
   const goToPage = (page: number) => {
     setCurrentPage(Math.max(1, Math.min(page, totalPages)))
@@ -38,7 +52,22 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
   }
 
   return (
-    <div className="space-y-6 py-4">
+    <div className="space-y-6">
+      <Card>
+        <CardContent className="pt-6">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Buscar por parroquia, título o descripción..."
+              value={searchTerm}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Vista de escritorio - Tabla */}
       <div className="hidden md:block">
         <Card>
@@ -53,6 +82,7 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-border">
+                    
                     <th className="text-left py-3 px-4 font-medium text-muted-foreground">Parroquia</th>
                     <th className="text-left py-3 px-4 font-medium text-muted-foreground">Título</th>
                     <th className="text-left py-3 px-4 font-medium text-muted-foreground">Descripción</th>
@@ -63,7 +93,10 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
                 <tbody>
                   {currentData.map((item) => (
                     <tr key={item.id} className="border-b border-border hover:bg-muted/50 transition-colors">
-                      <td className="py-3 px-4 text-sm font-mono">{item.cod_dpt}</td>
+                     
+                      <td className="py-3 px-4">
+                        <div className="text-sm font-medium text-foreground">{item.cod_dpt}</div>
+                      </td>
                       <td className="py-3 px-4">
                         <div className="font-medium text-foreground">{item.title}</div>
                       </td>
@@ -111,6 +144,7 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
             <div className="space-y-3">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
+                  <div className="text-xs font-medium text-muted-foreground mb-1">{item.parroquia}</div>
                   <h3 className="font-medium text-foreground text-balance">{item.title}</h3>
                   <p className="text-sm text-muted-foreground mt-1 text-pretty">{item.description}</p>
                 </div>
@@ -145,71 +179,81 @@ export function TablaParroquia({ data, itemsPerPage = 5 }: DataTableProps) {
         ))}
       </div>
 
+      {filteredData.length === 0 && (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <p className="text-muted-foreground">No se encontraron resultados para "{searchTerm}"</p>
+          </CardContent>
+        </Card>
+      )}
+
       {/* Controles de paginación */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
-        <div className="text-sm text-muted-foreground">
-          Mostrando {startIndex + 1} a {Math.min(endIndex, data.length)} de {data.length} elementos
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="h-8"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            <span className="sr-only">Página anterior</span>
-          </Button>
-
-          <div className="flex items-center gap-1">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-              // Mostrar solo algunas páginas en móvil
-              const showPage =
-                totalPages <= 5 ||
-                page === 1 ||
-                page === totalPages ||
-                (page >= currentPage - 1 && page <= currentPage + 1)
-
-              if (!showPage) {
-                // Mostrar puntos suspensivos
-                if (page === currentPage - 2 || page === currentPage + 2) {
-                  return (
-                    <span key={page} className="px-2 text-muted-foreground">
-                      ...
-                    </span>
-                  )
-                }
-                return null
-              }
-
-              return (
-                <Button
-                  key={page}
-                  variant={currentPage === page ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => goToPage(page)}
-                  className="h-8 w-8"
-                >
-                  {page}
-                </Button>
-              )
-            })}
+      {filteredData.length > 0 && (
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+          <div className="text-sm text-muted-foreground">
+            Mostrando {startIndex + 1} a {Math.min(endIndex, filteredData.length)} de {filteredData.length} elementos
           </div>
 
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="h-8"
-          >
-            <ChevronRight className="h-4 w-4" />
-            <span className="sr-only">Página siguiente</span>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => goToPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="h-8"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              <span className="sr-only">Página anterior</span>
+            </Button>
+
+            <div className="flex items-center gap-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                // Mostrar solo algunas páginas en móvil
+                const showPage =
+                  totalPages <= 5 ||
+                  page === 1 ||
+                  page === totalPages ||
+                  (page >= currentPage - 1 && page <= currentPage + 1)
+
+                if (!showPage) {
+                  // Mostrar puntos suspensivos
+                  if (page === currentPage - 2 || page === currentPage + 2) {
+                    return (
+                      <span key={page} className="px-2 text-muted-foreground">
+                        ...
+                      </span>
+                    )
+                  }
+                  return null
+                }
+
+                return (
+                  <Button
+                    key={page}
+                    variant={currentPage === page ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => goToPage(page)}
+                    className="h-8 w-8"
+                  >
+                    {page}
+                  </Button>
+                )
+              })}
+            </div>
+
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => goToPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="h-8"
+            >
+              <ChevronRight className="h-4 w-4" />
+              <span className="sr-only">Página siguiente</span>
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
