@@ -8,6 +8,7 @@ export const publicacionesData:IDelta[] = [
                 "format": "HTML",
                 "url": "https://sites.google.com/view/mapainstitucionesdeldelta/p%C3%A1gina-principal?authuser=5"
             },
+            
              {
                 "id":2,
                 "title": "Gráfico de Pirámide de Población",
@@ -98,6 +99,13 @@ export const publicacionesData:IDelta[] = [
                 "description": "Proyecciones al 30 de junio de cada año, calculadas en el segundo trimestre del año 2013, con base al Censo 2011.",
                 "format": "PDF",
                 "url": "https://drive.google.com/file/d/1qdQLsdu7iwE0SMhtZ5wwFXURKTU5Zu4O/view?usp=drive_link"
+            },
+            {
+                "id":15,
+                "title": "Mapa Temático",
+                "description": "Contiene las ubicaciones geográfica de las instituciones de salud del estado",
+                "format": "HTML",
+                "url": "https://sites.google.com/view/mapadeinstitucioneseduactivas/p%C3%A1gina-principal?authuser=3"
             },
             
             
