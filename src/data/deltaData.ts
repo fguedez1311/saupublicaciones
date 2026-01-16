@@ -107,6 +107,13 @@ export const publicacionesData:IDelta[] = [
                 "format": "HTML",
                 "url": "https://sites.google.com/view/mapadeinstitucioneseduactivas/p%C3%A1gina-principal?authuser=3"
             },
+            {
+                "id":16,
+                "title": "Mapa Temático",
+                "description": "Contiene las ubicaciones geográfica de las instituciones educativas del estado Delta Amacuro",
+                "format": "HTML",
+                "url": "https://sites.google.com/view/institucioneseducativasdelta/p%C3%A1gina-principal?authuser=4"
+            },
             
             
         ];
