@@ -107,6 +107,13 @@ export const publicacionesData:IDelta[] = [
                 "format": "HTML",
                 "url": "https://sites.google.com/view/mapadeinstitucioneseduactivas/p%C3%A1gina-principal?authuser=3"
             },
+            {
+                "id":16,
+                "title": "DPT actualizada segun Gaceta de mayo 2012-3",
+                "description": "División Política Territorial  por municipio según Gaceta Oficial",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1l9PaE8JFcUsAxaIzNYFMy4mqI2sy4Ldk/view?usp=drive_link"
+            },
             
             
         ];
