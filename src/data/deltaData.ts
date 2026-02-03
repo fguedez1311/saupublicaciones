@@ -121,7 +121,62 @@ export const publicacionesData:IDelta[] = [
                 "format": "HTML",
                 "url": "https://sites.google.com/view/institucioneseducativasdelta/p%C3%A1gina-principal?authuser=4"
             },
-            
+             {
+                "id":18,
+                "title": "Estado Delta Amacuro. Densidad Poblacional según Municipios y Parroquia, 2026",
+                "description": "Proyecciones al 30 de junio de cada año, calculadas en el trimestre del año 2013, con base al Censo 2011.",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1sasSBgGHxp_hXpasbYHCZ3YnyPEO4Wgm/view?usp=drive_link"
+            },
+            {
+                "id":19,
+                "title": "Estado Delta Amacuro. Municipio Antonio Díaz, Población, según grupos de edad y sexo, 2020-2026",
+                "description": "Proyecciones al 30 de junio de cada año, calculadas en el segundo trimestre del año 2013, con base al Censo 2011.",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1rRikxa5x5D32J_9M6TP7iE_WahtvXwLM/view?usp=drive_link"
+            },
+            {
+                "id":20,
+                "title": "Estado Delta Amacuro. Municipio Casacoima, Población, según grupos de edad y sexo, 2020-2026",
+                "description": "Proyecciones al 30 de junio de cada año, calculadas en el segundo trimestre del año 2013, con base al Censo 2011.",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1kv6YVrfATVG9fRx5Gpfl2LqxuZHL28_v/view?usp=drive_link"
+            },
+            {
+                "id":21,
+                "title": "Estado Delta Amacuro. Proyección de Población por,municipios y parroquias, 2025-2026.",
+                "description": "Proyecciones al 30 de junio de cada año, calculadas en el trimestre del año 2013, con base al Censo 2011",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1DtExn24hrLJnK_V1YLP65vDe6WpCuLZQ/view?usp=drive_link"
+            },
+             {
+                "id":22,
+                "title": "Estado Delta Amacuro. Proyección de Población por Municipio, 2020 -2026",
+                "description": "Nota: Proyecciones al 30 de junio de cada año, calculadas en el segundo trimestre del año 2013, con base al Censo 2011",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1r6X_CZ1dRn8f3qf8PoXXUlBhiEf97W6R/view?usp=drive_link"
+            },
+             {
+                "id":23,
+                "title": "Estado Delta Amacuro. Pireamide Poblacional según grupo de edades, 2026",
+                "description": "Proyecciones basadas en el Censo de Población y Vivienda 2011.",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/11Q1zok6pxho0JZ5sFraZqUPozMW8DFUC/view?usp=drive_link"
+            },
+             {
+                "id":24,
+                "title": "Estado Delta Amacuro. Municipio Tucupita, Población, según grupos de edad y sexo, 2020-2026",
+                "description": "Proyecciones al 30 de junio de cada año, calculadas en el segundo trimestre del año 2013, con base al Censo 2011.",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1s8hLJPWQcLa3xE2GVhRLnL2_-kJXY5GR/view?usp=drive_link"
+            },
+             {
+                "id":25,
+                "title": "Estado Delta Amacuro. Municipio Pedernales, Población, según grupos de edad y sexo, 2020-2026",
+                "description": "Proyecciones al 30 de junio de cada año, calculadas en el segundo trimestre del año 2013, con base al Censo 2011.",
+                "format": "PDF",
+                "url": "https://drive.google.com/file/d/1MjbyMaWpu6g_xQhMDzczNSsZQ-Tqjhnm/view?usp=drive_link"
+            },
             
         ];
         
