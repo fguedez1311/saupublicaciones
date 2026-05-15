@@ -184,6 +184,27 @@ export const publicacionesData:IDelta[] = [
                 "format": "PDF",
                 "url": "https://drive.google.com/file/d/1MjbyMaWpu6g_xQhMDzczNSsZQ-Tqjhnm/view?usp=drive_link"
             },
+            {
+                "id":27,
+                "title": "Mapa Municipal del Estado Delta Amacuro",
+                "description": "Mapa Municipal con puntos Georeferenciados",
+                "format": "HTML",
+                "url": "https://sites.google.com/view/mapamunicipaldelta/p%C3%A1gina-principal"
+            },
+             {
+                "id":28,
+                "title": "Mapa Parroquial del Estado Delta Amacuro",
+                "description": "Mapa Parroquial con puntos Georeferenciados",
+                "format": "HTML",
+                "url": "https://sites.google.com/view/mapaparroquialdelta/p%C3%A1gina-principal"
+            },
+            {
+                "id":29,
+                "title": "Mapa de Comunidad del Estado Delta Amacuro",
+                "description": "Mapa de Comunidad con puntos Georeferenciados",
+                "format": "HTML",
+                "url": "https://sites.google.com/view/mapa-de-comunidades/p%C3%A1gina-principal"
+            },
             
             
         ];
